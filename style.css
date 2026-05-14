@@ -38,11 +38,28 @@ html {
 
 body {
   font-family: var(--font-ja);
-  background-color: var(--color-bg);
+  background-color: #ebebeb;
+  background-image:
+    radial-gradient(ellipse 130% 70% at 12% 0%, rgba(215,215,215,0.6) 0%, transparent 55%),
+    radial-gradient(ellipse 90% 90% at 88% 100%, rgba(200,200,200,0.45) 0%, transparent 55%),
+    linear-gradient(155deg, #f9f9f9 0%, #f3f3f3 40%, #ebebeb 100%);
   color: var(--color-dark);
   line-height: 1.8;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.03;
+  z-index: -1;
+  pointer-events: none;
 }
 
 a {
@@ -123,8 +140,9 @@ section {
 }
 
 .logo-img {
-  height: 36px;
+  height: 38px;
   width: auto;
+  display: block;
 }
 
 .logo-text {
@@ -243,6 +261,15 @@ section {
   color: rgba(255,255,255,0.4);
   margin-top: 4px;
   letter-spacing: 0.06em;
+}
+
+.footer-logo-img {
+  height: 28px;
+  width: auto;
+  display: block;
+  margin-bottom: 12px;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
 }
 
 .footer-tagline {
@@ -393,8 +420,10 @@ section {
 
 /* カード */
 .card {
-  background: var(--color-bg-white);
-  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.55);
   border-radius: var(--radius-md);
   padding: 36px;
   box-shadow: var(--shadow-sm);
@@ -410,8 +439,10 @@ section {
 .page-hero {
   padding: 128px 0 72px;
   text-align: center;
-  background: var(--color-bg-white);
-  border-bottom: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(220,220,220,0.6);
 }
 
 .page-hero-label {
@@ -455,7 +486,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-bg-white);
+  background: transparent;
   position: relative;
   overflow: hidden;
   padding-top: 68px;
@@ -484,18 +515,19 @@ section {
 .hero-inner {
   position: relative;
   z-index: 1;
-  max-width: var(--max-width);
+  max-width: 800px;
   margin: 0 auto;
   padding: 0 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 80px;
   width: 100%;
 }
 
 .hero-content {
-  padding: 80px 0;
+  padding: 100px 0 80px;
+  text-align: center;
+  width: 100%;
 }
 
 .hero-eyecatch {
@@ -507,6 +539,7 @@ section {
   color: var(--color-light);
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   margin-bottom: 28px;
 }
@@ -541,7 +574,7 @@ section {
   font-size: 15px;
   color: var(--color-mid);
   line-height: 1.9;
-  margin-bottom: 48px;
+  margin: 0 auto 48px;
   max-width: 480px;
 }
 
@@ -549,13 +582,12 @@ section {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
-/* ヒーロー右側ビジュアル */
+/* ヒーロー右側ビジュアル（非表示） */
 .hero-visual {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  display: none;
 }
 
 .hero-card {
@@ -605,9 +637,17 @@ section {
   flex: 1;
 }
 
+/* アイコン非表示 */
+.service-icon,
+.hero-card-icon,
+.service-full-icon,
+.contact-option-icon {
+  display: none;
+}
+
 /* サービス紹介（TOP） */
 .top-services {
-  background: var(--color-bg-light);
+  background: rgba(244, 244, 244, 0.65);
 }
 
 .services-grid {
@@ -617,8 +657,10 @@ section {
 }
 
 .service-card {
-  background: var(--color-bg-white);
-  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.55);
   border-radius: var(--radius-md);
   padding: 40px;
   box-shadow: var(--shadow-sm);
@@ -688,10 +730,12 @@ section {
 
 /* お知らせ（TOP） */
 .news-list {
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(255,255,255,0.55);
   border-radius: var(--radius-md);
   overflow: hidden;
-  background: var(--color-bg-white);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   box-shadow: var(--shadow-sm);
 }
 
@@ -709,7 +753,7 @@ section {
 }
 
 .news-item:hover {
-  background: var(--color-bg-light);
+  background: rgba(244,244,244,0.7);
 }
 
 .news-date {
@@ -791,8 +835,10 @@ section {
    =========================== */
 
 .about-table-wrap {
-  background: var(--color-bg-white);
-  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.55);
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
@@ -821,7 +867,7 @@ section {
   width: 200px;
   font-weight: 600;
   color: var(--color-black);
-  background: var(--color-bg-light);
+  background: rgba(244,244,244,0.7);
   font-size: 13px;
   letter-spacing: 0.02em;
 }
@@ -838,7 +884,10 @@ section {
 
 /* 代表メッセージ */
 .message-block {
-  background: var(--color-bg-light);
+  background: rgba(244, 244, 244, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.5);
   border-radius: var(--radius-lg);
   padding: 56px 64px;
   position: relative;
@@ -883,8 +932,10 @@ section {
 }
 
 .service-full-card {
-  background: var(--color-bg-white);
-  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.55);
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
@@ -898,8 +949,8 @@ section {
 
 .service-card-header {
   padding: 36px 36px 28px;
-  border-bottom: 1px solid var(--color-border);
-  background: linear-gradient(135deg, var(--color-bg-light) 0%, #fff 100%);
+  border-bottom: 1px solid rgba(220,220,220,0.5);
+  background: linear-gradient(135deg, rgba(244,244,244,0.6) 0%, rgba(255,255,255,0.4) 100%);
 }
 
 .service-card-body {
@@ -974,10 +1025,12 @@ section {
   display: flex;
   flex-direction: column;
   gap: 0;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(255,255,255,0.55);
   border-radius: var(--radius-md);
   overflow: hidden;
-  background: var(--color-bg-white);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   box-shadow: var(--shadow-sm);
 }
 
@@ -995,7 +1048,7 @@ section {
 }
 
 .news-full-item:hover {
-  background: var(--color-bg-light);
+  background: rgba(244,244,244,0.7);
 }
 
 /* ===========================
@@ -1010,8 +1063,10 @@ section {
 }
 
 .contact-option-card {
-  background: var(--color-bg-white);
-  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.55);
   border-radius: var(--radius-md);
   padding: 40px;
   text-align: center;
@@ -1046,8 +1101,10 @@ section {
 
 /* お問い合わせフォーム */
 .contact-form-wrap {
-  background: var(--color-bg-white);
-  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.55);
   border-radius: var(--radius-md);
   padding: 48px 52px;
   box-shadow: var(--shadow-sm);
@@ -1086,12 +1143,12 @@ section {
 .form-textarea {
   width: 100%;
   padding: 12px 16px;
-  border: 1.5px solid var(--color-border);
+  border: 1.5px solid rgba(220,220,220,0.7);
   border-radius: var(--radius-sm);
   font-size: 14px;
   font-family: var(--font-ja);
   color: var(--color-dark);
-  background: var(--color-bg);
+  background: rgba(250,250,250,0.85);
   transition: border-color var(--transition), box-shadow var(--transition);
   outline: none;
   -webkit-appearance: none;
@@ -1146,8 +1203,10 @@ section {
    =========================== */
 
 .privacy-content {
-  background: var(--color-bg-white);
-  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.55);
   border-radius: var(--radius-md);
   padding: 52px 60px;
   box-shadow: var(--shadow-sm);
@@ -1232,7 +1291,9 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--color-bg-white);
+    background: rgba(250, 250, 250, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -1253,31 +1314,11 @@ section {
   }
 
   .hero-inner {
-    grid-template-columns: 1fr;
-    gap: 48px;
     padding: 80px 20px 60px;
-  }
-
-  .hero-visual {
-    display: none;
   }
 
   .hero-content {
     padding: 40px 0 20px;
-    text-align: center;
-  }
-
-  .hero-eyecatch {
-    justify-content: center;
-  }
-
-  .hero-body {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .hero-actions {
-    justify-content: center;
   }
 
   .services-grid,

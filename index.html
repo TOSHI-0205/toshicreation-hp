@@ -16,18 +16,13 @@
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html" class="site-logo">
-        <!-- ロゴ画像がある場合: <img src="images/logo.svg" alt="TOSHI CREATION" class="logo-img"> -->
-        <div class="logo-mark">TC</div>
-        <div class="logo-text">
-          <span class="logo-text-en">TOSHI CREATION</span>
-          <span class="logo-text-ja">株式会社</span>
-        </div>
+        <img src="images/toshi-creation-logo.png" alt="TOSHI CREATION株式会社" class="logo-img">
       </a>
       <nav class="site-nav" id="siteNav">
-        <a href="about.html">会社概要</a>
-        <a href="services.html">サービス</a>
-        <a href="news.html">お知らせ</a>
-        <a href="contact.html" class="nav-contact-btn">お問い合わせ</a>
+        <a href="#about">会社概要</a>
+        <a href="#services">サービス</a>
+        <a href="#news">お知らせ</a>
+        <a href="#contact" class="nav-contact-btn">お問い合わせ</a>
       </nav>
       <button class="hamburger" id="hamburger" aria-label="メニューを開く">
         <span></span>
@@ -40,7 +35,7 @@
   <main>
 
     <!-- ヒーローセクション -->
-    <section class="hero">
+    <section class="hero" id="about">
       <div class="hero-bg"></div>
       <div class="hero-grid"></div>
       <div class="hero-inner">
@@ -54,51 +49,11 @@
             <a href="contact.html" class="btn btn-outline">お問い合わせ</a>
           </div>
         </div>
-        <div class="hero-visual">
-          <div class="hero-card-row">
-            <div class="hero-card">
-              <div class="hero-card-label">Service 01</div>
-              <div class="hero-card-value">
-                <div class="hero-card-icon">🤖</div>
-                AI活用支援
-              </div>
-            </div>
-            <div class="hero-card">
-              <div class="hero-card-label">Service 02</div>
-              <div class="hero-card-value">
-                <div class="hero-card-icon">📖</div>
-                電子書籍出版
-              </div>
-            </div>
-          </div>
-          <div class="hero-card">
-            <div class="hero-card-label">Our Mission</div>
-            <div class="hero-card-value" style="font-size:14px; line-height:1.7; display:block; font-weight:400; color:var(--color-mid); padding-top:4px;">
-              テクノロジーと人をつなぎ、<strong style="color:var(--color-black); font-weight:700;">誰もが前に進める環境</strong>をつくる。
-            </div>
-          </div>
-          <div class="hero-card-row">
-            <div class="hero-card">
-              <div class="hero-card-label">Service 03</div>
-              <div class="hero-card-value">
-                <div class="hero-card-icon">💻</div>
-                LP制作
-              </div>
-            </div>
-            <div class="hero-card">
-              <div class="hero-card-label">Service 04</div>
-              <div class="hero-card-value">
-                <div class="hero-card-icon">🎤</div>
-                イベント
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
     <!-- サービス紹介 -->
-    <section class="top-services">
+    <section class="top-services" id="services">
       <div class="container">
         <div class="section-header">
           <span class="section-label">Services</span>
@@ -107,25 +62,21 @@
         </div>
         <div class="services-grid">
           <div class="service-card">
-            <div class="service-icon">🤖</div>
             <h3 class="service-card-title">AI活用支援</h3>
             <p class="service-card-desc">ChatGPTをはじめとするAIツールの導入・活用方法を、個人・法人向けにわかりやすくサポートします。初心者でも安心してAIを使い始められるよう、丁寧にご支援します。</p>
             <a href="services.html#ai" class="service-card-link">詳しく見る →</a>
           </div>
           <div class="service-card">
-            <div class="service-icon">📖</div>
             <h3 class="service-card-title">電子書籍出版サポート</h3>
             <p class="service-card-desc">あなたの知識や経験を電子書籍として形にします。企画・執筆サポートから出版・販売設定まで、出版プロセス全体をサポートします。</p>
             <a href="services.html#ebook" class="service-card-link">詳しく見る →</a>
           </div>
           <div class="service-card">
-            <div class="service-icon">💻</div>
             <h3 class="service-card-title">LP制作</h3>
             <p class="service-card-desc">商品・サービスの魅力を最大限に伝えるランディングページを制作します。コンバージョンを意識した設計と、スマートフォン対応のデザインで成果につなげます。</p>
             <a href="services.html#lp" class="service-card-link">詳しく見る →</a>
           </div>
           <div class="service-card">
-            <div class="service-icon">🎤</div>
             <h3 class="service-card-title">イベント実施</h3>
             <p class="service-card-desc">AI・デジタルに関するセミナー、勉強会、ワークショップを企画・運営します。参加者のレベルや目的に合わせた内容で、実践的なスキルを身につけていただけます。</p>
             <a href="services.html#event" class="service-card-link">詳しく見る →</a>
@@ -138,7 +89,7 @@
     </section>
 
     <!-- お知らせ -->
-    <section>
+    <section id="news">
       <div class="container">
         <div class="section-header">
           <span class="section-label">News</span>
@@ -168,7 +119,7 @@
     </section>
 
     <!-- お問い合わせ導線 -->
-    <section class="contact-cta">
+    <section class="contact-cta" id="contact">
       <div class="container">
         <div class="section-header">
           <span class="section-label">Contact</span>
@@ -177,11 +128,9 @@
         </div>
         <div class="cta-actions">
           <a href="mailto:info@toshi-creation.jp" class="btn btn-white">
-            <span>✉</span>
             メールで問い合わせる
           </a>
           <a href="#" class="btn btn-line">
-            <span>💬</span>
             公式LINEで相談する
           </a>
         </div>
@@ -195,8 +144,7 @@
     <div class="footer-inner">
       <div class="footer-top">
         <div>
-          <div class="footer-logo-text-en">TOSHI CREATION</div>
-          <div class="footer-logo-text-ja">株式会社</div>
+          <img src="images/toshi-creation-logo.png" alt="TOSHI CREATION株式会社" class="footer-logo-img">
           <p class="footer-tagline">AIを、身近に。<br>テクノロジーを、あなたの力に。</p>
         </div>
         <nav class="footer-nav">
