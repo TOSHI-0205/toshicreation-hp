@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お知らせ | TOSHI CREATION株式会社</title>
+  <meta name="description" content="TOSHI CREATION株式会社からのお知らせ・最新情報をお届けします。">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <div class="logo-mark">TC</div>
+        <div class="logo-text">
+          <span class="logo-text-en">TOSHI CREATION</span>
+          <span class="logo-text-ja">株式会社</span>
+        </div>
+      </a>
+      <nav class="site-nav" id="siteNav">
+        <a href="about.html">会社概要</a>
+        <a href="services.html">サービス</a>
+        <a href="news.html" class="active">お知らせ</a>
+        <a href="contact.html" class="nav-contact-btn">お問い合わせ</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ページヘッダー -->
+    <div class="page-hero">
+      <div class="container">
+        <span class="page-hero-label">News</span>
+        <h1 class="page-hero-title">お知らせ</h1>
+        <p class="page-hero-desc">最新のお知らせ・サービス情報をお届けします</p>
+      </div>
+    </div>
+
+    <!-- お知らせ一覧 -->
+    <section>
+      <div class="container">
+
+        <!-- カテゴリフィルター（見た目のみ） -->
+        <div style="display: flex; gap: 8px; margin-bottom: 40px; flex-wrap: wrap;">
+          <button style="padding: 8px 20px; border-radius: 100px; border: 1.5px solid var(--color-black); background: var(--color-black); color: #fff; font-size: 13px; font-weight: 500; cursor: pointer; font-family: var(--font-ja); letter-spacing: 0.02em;">すべて</button>
+          <button style="padding: 8px 20px; border-radius: 100px; border: 1.5px solid var(--color-border); background: transparent; color: var(--color-mid); font-size: 13px; font-weight: 500; cursor: pointer; font-family: var(--font-ja); letter-spacing: 0.02em; transition: all 0.2s;">お知らせ</button>
+          <button style="padding: 8px 20px; border-radius: 100px; border: 1.5px solid var(--color-border); background: transparent; color: var(--color-mid); font-size: 13px; font-weight: 500; cursor: pointer; font-family: var(--font-ja); letter-spacing: 0.02em; transition: all 0.2s;">サービス</button>
+          <button style="padding: 8px 20px; border-radius: 100px; border: 1.5px solid var(--color-border); background: transparent; color: var(--color-mid); font-size: 13px; font-weight: 500; cursor: pointer; font-family: var(--font-ja); letter-spacing: 0.02em; transition: all 0.2s;">イベント</button>
+        </div>
+
+        <div class="news-full-list">
+          <div class="news-full-item">
+            <span class="news-date">2026.05.01</span>
+            <span class="news-tag">お知らせ</span>
+            <span class="news-title-link">公式ホームページを公開しました</span>
+          </div>
+          <div class="news-full-item">
+            <span class="news-date">2026.05.01</span>
+            <span class="news-tag">サービス</span>
+            <span class="news-title-link">AI活用支援サービスを開始しました</span>
+          </div>
+          <div class="news-full-item">
+            <span class="news-date">2026.05.01</span>
+            <span class="news-tag">サービス</span>
+            <span class="news-title-link">電子書籍出版サポートの受付を開始しました</span>
+          </div>
+        </div>
+
+        <!-- 空状態のメモ（後で削除） -->
+        <p style="margin-top: 24px; font-size: 12px; color: var(--color-light); text-align: right;">※ お知らせが増えたら随時追加してください</p>
+
+      </div>
+    </section>
+
+    <!-- お問い合わせ導線 -->
+    <section class="contact-cta">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Contact</span>
+          <h2 class="section-title">ご相談・お問い合わせ</h2>
+          <p class="section-desc">サービス内容に関するご相談、AI活用、電子書籍出版、LP制作、イベント実施などについて、お気軽にお問い合わせください。</p>
+        </div>
+        <div class="cta-actions">
+          <a href="mailto:info@toshi-creation.jp" class="btn btn-white">
+            <span>✉</span>
+            メールで問い合わせる
+          </a>
+          <a href="#" class="btn btn-line">
+            <span>💬</span>
+            公式LINEで相談する
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- フッター -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo-text-en">TOSHI CREATION</div>
+          <div class="footer-logo-text-ja">株式会社</div>
+          <p class="footer-tagline">AIを、身近に。<br>テクノロジーを、あなたの力に。</p>
+        </div>
+        <nav class="footer-nav">
+          <div class="footer-nav-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="about.html">会社概要</a></li>
+              <li><a href="news.html">お知らせ</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-col">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="services.html#ai">AI活用支援</a></li>
+              <li><a href="services.html#ebook">電子書籍出版</a></li>
+              <li><a href="services.html#lp">LP制作</a></li>
+              <li><a href="services.html#event">イベント実施</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-col">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="contact.html">お問い合わせ</a></li>
+              <li><a href="privacy.html">プライバシーポリシー</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 TOSHI CREATION Co., Ltd. All Rights Reserved.</p>
+        <a href="privacy.html" style="font-size:11px; color:rgba(255,255,255,0.3); font-family:var(--font-en);">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const siteNav = document.getElementById('siteNav');
+    hamburger.addEventListener('click', () => { siteNav.classList.toggle('is-open'); });
+    window.addEventListener('scroll', () => {
+      document.querySelector('.site-header').style.boxShadow = window.scrollY > 20 ? '0 2px 16px rgba(0,0,0,0.08)' : 'none';
+    });
+  </script>
+</body>
+</html>
