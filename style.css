@@ -39,26 +39,17 @@ html {
 body {
   font-family: var(--font-ja);
   background-color: #c8c8c8;
-  background-image: url('images/frosted-glass-bg.png');
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.76)),
+    url("images/glass-bg.png");
   background-size: cover;
+  background-position: center;
   background-attachment: fixed;
-  background-position: center center;
   background-repeat: no-repeat;
   color: var(--color-dark);
   line-height: 1.8;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
-  position: relative;
-}
-
-/* 白いオーバーレイ：可読性確保＋明るさ調整 */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: rgba(245, 245, 243, 0.62);
-  z-index: -1;
-  pointer-events: none;
 }
 
 a {
