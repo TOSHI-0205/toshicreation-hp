@@ -630,7 +630,7 @@ section {
 
 /* サービス紹介（TOP） */
 .top-services {
-  background: rgba(240, 240, 238, 0.55);
+  background: rgba(240, 240, 238, 0.28);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
 }
