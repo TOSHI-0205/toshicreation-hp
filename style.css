@@ -778,20 +778,19 @@ section {
 
 /* お問い合わせ導線（TOP） */
 .contact-cta {
-  background: var(--color-black);
-  color: #fff;
+  background: transparent;
 }
 
 .contact-cta .section-label {
-  color: rgba(255,255,255,0.4);
+  color: var(--color-light);
 }
 
 .contact-cta .section-title {
-  color: #fff;
+  color: var(--color-black);
 }
 
 .contact-cta .section-desc {
-  color: rgba(255,255,255,0.6);
+  color: var(--color-mid);
 }
 
 .cta-actions {
