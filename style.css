@@ -38,11 +38,12 @@ html {
 
 body {
   font-family: var(--font-ja);
-  background-color: #ebebeb;
-  background-image:
-    radial-gradient(ellipse 130% 70% at 12% 0%, rgba(215,215,215,0.6) 0%, transparent 55%),
-    radial-gradient(ellipse 90% 90% at 88% 100%, rgba(200,200,200,0.45) 0%, transparent 55%),
-    linear-gradient(155deg, #f9f9f9 0%, #f3f3f3 40%, #ebebeb 100%);
+  background-color: #c8c8c8;
+  background-image: url('images/frosted-glass-bg.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
   color: var(--color-dark);
   line-height: 1.8;
   font-size: 16px;
@@ -50,14 +51,12 @@ body {
   position: relative;
 }
 
+/* 白いオーバーレイ：可読性確保＋明るさ調整 */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 200px 200px;
-  opacity: 0.03;
+  background: rgba(245, 245, 243, 0.62);
   z-index: -1;
   pointer-events: none;
 }
@@ -101,10 +100,10 @@ section {
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(250, 250, 250, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--color-border);
+  background: rgba(248, 248, 246, 0.82);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  border-bottom: 1px solid rgba(200,200,200,0.45);
 }
 
 .header-inner {
@@ -421,9 +420,9 @@ section {
 /* カード */
 .card {
   background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.7);
   border-radius: var(--radius-md);
   padding: 36px;
   box-shadow: var(--shadow-sm);
@@ -439,10 +438,10 @@ section {
 .page-hero {
   padding: 128px 0 72px;
   text-align: center;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(220,220,220,0.6);
+  background: rgba(248, 248, 246, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(200,200,200,0.4);
 }
 
 .page-hero-label {
@@ -496,8 +495,7 @@ section {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 70% 50%, rgba(0,0,0,0.03) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 80% at 20% 80%, rgba(0,0,0,0.025) 0%, transparent 60%);
+    radial-gradient(ellipse 90% 70% at 50% 60%, rgba(255,255,255,0.18) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -505,11 +503,11 @@ section {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+    linear-gradient(rgba(0,0,0,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.025) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
 .hero-inner {
@@ -553,29 +551,23 @@ section {
 }
 
 .hero-title {
-  font-size: clamp(42px, 6vw, 72px);
+  font-size: clamp(46px, 6.5vw, 82px);
   font-weight: 800;
   color: var(--color-black);
-  line-height: 1.2;
+  line-height: 1.18;
   letter-spacing: -0.03em;
-  margin-bottom: 12px;
-}
-
-.hero-title-sub {
-  font-size: clamp(16px, 2vw, 20px);
-  font-weight: 400;
-  color: var(--color-mid);
-  line-height: 1.6;
-  margin-bottom: 36px;
-  letter-spacing: 0.02em;
+  margin-bottom: 40px;
+  text-shadow: 0 1px 12px rgba(255,255,255,0.7);
 }
 
 .hero-body {
-  font-size: 15px;
-  color: var(--color-mid);
-  line-height: 1.9;
-  margin: 0 auto 48px;
-  max-width: 480px;
+  font-size: 16px;
+  color: var(--color-dark);
+  line-height: 2.1;
+  margin: 0 auto 52px;
+  max-width: 520px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
 .hero-actions {
@@ -647,7 +639,9 @@ section {
 
 /* サービス紹介（TOP） */
 .top-services {
-  background: rgba(244, 244, 244, 0.65);
+  background: rgba(240, 240, 238, 0.55);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 
 .services-grid {
@@ -657,13 +651,13 @@ section {
 }
 
 .service-card {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.55);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.7);
   border-radius: var(--radius-md);
   padding: 40px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
   transition: all var(--transition);
   position: relative;
   overflow: hidden;
@@ -730,13 +724,13 @@ section {
 
 /* お知らせ（TOP） */
 .news-list {
-  border: 1px solid rgba(255,255,255,0.55);
+  border: 1px solid rgba(255,255,255,0.7);
   border-radius: var(--radius-md);
   overflow: hidden;
   background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
 }
 
 .news-item {
@@ -836,9 +830,9 @@ section {
 
 .about-table-wrap {
   background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.7);
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
@@ -933,9 +927,9 @@ section {
 
 .service-full-card {
   background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.7);
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
@@ -1064,9 +1058,9 @@ section {
 
 .contact-option-card {
   background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.7);
   border-radius: var(--radius-md);
   padding: 40px;
   text-align: center;
@@ -1102,9 +1096,9 @@ section {
 /* お問い合わせフォーム */
 .contact-form-wrap {
   background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.7);
   border-radius: var(--radius-md);
   padding: 48px 52px;
   box-shadow: var(--shadow-sm);
@@ -1204,9 +1198,9 @@ section {
 
 .privacy-content {
   background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.7);
   border-radius: var(--radius-md);
   padding: 52px 60px;
   box-shadow: var(--shadow-sm);
@@ -1291,9 +1285,9 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(250, 250, 250, 0.96);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(245, 245, 243, 0.94);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
     flex-direction: column;
     align-items: center;
     justify-content: center;
