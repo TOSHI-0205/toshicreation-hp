@@ -216,7 +216,9 @@ section {
    =========================== */
 
 .site-footer {
-  background: var(--color-black);
+  background: rgba(20, 20, 20, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   color: #fff;
   padding: 64px 0 32px;
 }
