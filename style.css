@@ -429,10 +429,7 @@ section {
 .page-hero {
   padding: 128px 0 72px;
   text-align: center;
-  background: rgba(248, 248, 246, 0.72);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(200,200,200,0.4);
+  background: transparent;
 }
 
 .page-hero-label {
@@ -542,7 +539,7 @@ section {
 }
 
 .hero-title {
-  font-size: clamp(46px, 6.5vw, 82px);
+  font-size: clamp(32px, 4.5vw, 57px);
   font-weight: 800;
   color: var(--color-black);
   line-height: 1.18;
@@ -877,15 +874,7 @@ section {
 }
 
 .message-block::before {
-  content: '"';
-  position: absolute;
-  top: -10px;
-  left: 32px;
-  font-size: 180px;
-  font-family: Georgia, serif;
-  color: rgba(0,0,0,0.04);
-  line-height: 1;
-  pointer-events: none;
+  content: none;
 }
 
 .message-text {
