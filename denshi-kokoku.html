@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TOSHI CREATION株式会社 | AIを、身近に。</title>
-  <meta name="description" content="TOSHI CREATION株式会社は、AI活用支援・電子書籍出版サポート・LP制作・イベント実施を通じて、一人ひとりのビジネスと生活にAIを身近にする会社です。">
+  <title>電子公告 | TOSHI CREATION株式会社</title>
+  <meta name="description" content="TOSHI CREATION株式会社の電子公告ページです。">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,62 +21,83 @@
       <nav class="site-nav" id="siteNav">
         <a href="about.html">会社概要</a>
         <a href="services.html">サービス</a>
-        <a href="#news">お知らせ</a>
-        <a href="#contact" class="nav-contact-btn">お問い合わせ</a>
+        <a href="news.html">お知らせ</a>
+        <a href="contact.html" class="nav-contact-btn">お問い合わせ</a>
       </nav>
       <button class="hamburger" id="hamburger" aria-label="メニューを開く">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
   <main>
 
-    <!-- ヒーローセクション -->
-    <section class="hero" id="about">
-      <div class="hero-bg"></div>
-      <div class="hero-grid"></div>
-      <div class="hero-inner">
-        <div class="hero-content">
-          <p class="hero-eyecatch">TOSHI CREATION</p>
-          <h1 class="hero-title">ひとりにひとつ、<br>AIという可能性を。</h1>
-          <p class="hero-body">AIやデジタル技術は、<br>特別な人だけのものではありません。<br><br>TOSHI CREATION株式会社は、<br>誰もがAIを活用し、<br>自分らしく人生を創造できる<br>「ひとりいちAI社会」の実現を目指しています。</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- お知らせ -->
-    <section id="news">
+    <!-- ページヘッダー -->
+    <div class="page-hero">
       <div class="container">
-        <div class="section-header">
-          <span class="section-label">News</span>
-          <h2 class="section-title">お知らせ</h2>
-        </div>
-        <div class="news-list">
-          <div class="news-item">
-            <span class="news-date">2026.05.01</span>
-            <span class="news-tag">お知らせ</span>
-            <a href="news.html" class="news-title-link">公式ホームページを公開しました</a>
-          </div>
-          <div class="news-item">
-            <span class="news-date">2026.05.01</span>
-            <span class="news-tag">サービス</span>
-            <a href="news.html" class="news-title-link">AI活用支援サービスを開始しました</a>
-          </div>
-          <div class="news-item">
-            <span class="news-date">2026.05.01</span>
-            <span class="news-tag">サービス</span>
-            <a href="news.html" class="news-title-link">電子書籍出版サポートの受付を開始しました</a>
-          </div>
-        </div>
-        <div class="news-more">
-          <a href="news.html" class="btn btn-outline">お知らせ一覧へ</a>
+        <span class="page-hero-label">IR</span>
+        <h1 class="page-hero-title">電子公告</h1>
+        <p class="page-hero-desc">Electronic Public Notice</p>
+      </div>
+    </div>
+
+    <!-- 本文 -->
+    <section>
+      <div class="container" style="max-width: 680px;">
+        <div style="
+          background: rgba(255,255,255,0.75);
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+          border: 1px solid rgba(255,255,255,0.7);
+          border-radius: var(--radius-md);
+          padding: 64px;
+          box-shadow: var(--shadow-sm);
+          text-align: center;
+        ">
+          <p style="
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            color: var(--color-light);
+            font-family: var(--font-en);
+            text-transform: uppercase;
+            margin-bottom: 28px;
+          ">Notice</p>
+
+          <p style="
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--color-black);
+            letter-spacing: -0.01em;
+            margin-bottom: 32px;
+            line-height: 1.5;
+          ">現在掲載事項はありません</p>
+
+          <div style="
+            width: 32px;
+            height: 1px;
+            background: var(--color-border);
+            margin: 0 auto 32px;
+          "></div>
+
+          <p style="
+            font-size: 14px;
+            color: var(--color-mid);
+            line-height: 2;
+          ">
+            現在、決算公告はありません。<br>
+            決算公告が必要となった際に掲載いたします。
+          </p>
+
+          <p style="
+            margin-top: 40px;
+            font-size: 13px;
+            color: var(--color-light);
+            letter-spacing: 0.04em;
+          ">TOSHI CREATION株式会社</p>
         </div>
       </div>
     </section>
-
 
   </main>
 
@@ -127,21 +148,11 @@
   </footer>
 
   <script>
-    // ハンバーガーメニュー
     const hamburger = document.getElementById('hamburger');
     const siteNav = document.getElementById('siteNav');
-    hamburger.addEventListener('click', () => {
-      siteNav.classList.toggle('is-open');
-    });
-
-    // スクロール時ヘッダー
+    hamburger.addEventListener('click', () => { siteNav.classList.toggle('is-open'); });
     window.addEventListener('scroll', () => {
-      const header = document.querySelector('.site-header');
-      if (window.scrollY > 20) {
-        header.style.boxShadow = '0 2px 16px rgba(0,0,0,0.08)';
-      } else {
-        header.style.boxShadow = 'none';
-      }
+      document.querySelector('.site-header').style.boxShadow = window.scrollY > 20 ? '0 2px 16px rgba(0,0,0,0.08)' : 'none';
     });
   </script>
 </body>
