@@ -1309,13 +1309,105 @@ section {
 
 
 /* ===========================
-   経営理念グリッド
+   ご依頼の流れ
    =========================== */
 
-.philosophy-grid {
+.flow-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  position: relative;
+}
+
+.flow-connector {
+  position: absolute;
+  top: 36px;
+  left: 12.5%;
+  right: 12.5%;
+  height: 1px;
+  background: var(--color-border);
+  z-index: 0;
+}
+
+.flow-item {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius-md);
+  padding: 36px 24px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition), transform var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flow-item:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.flow-num {
+  width: 52px;
+  height: 52px;
+  background: var(--color-black);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: var(--font-en);
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.flow-item-body {
+  flex: 1;
+}
+
+.flow-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-black);
+  margin-bottom: 8px;
+}
+
+.flow-desc {
+  font-size: 12px;
+  color: var(--color-mid);
+  line-height: 1.7;
+}
+
+/* ===========================
+   経営理念ボックス
+   =========================== */
+
+.philosophy-box {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.philosophy-item {
+  padding: 40px 36px;
+  text-align: center;
+  border-right: 1px solid var(--color-border);
+}
+
+.philosophy-item:last-child {
+  border-right: none;
 }
 
 .philosophy-card-title {
@@ -1346,24 +1438,23 @@ section {
     padding: 64px 0;
   }
 
-  /* ハンバーガー：コンパクトドロップダウン */
+  /* ハンバーガー：超コンパクトドロップダウン */
   .site-nav {
     display: none;
     position: fixed;
     top: 68px;
     left: 0;
     right: 0;
-    background: rgba(248, 248, 246, 0.97);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+    background: rgba(250, 250, 248, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
     gap: 0;
     z-index: 99;
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-    padding: 4px 0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   }
 
   .site-nav.is-open {
@@ -1371,50 +1462,121 @@ section {
   }
 
   .site-nav a {
-    font-size: 13px;
-    padding: 14px 24px;
-    color: var(--color-dark);
-    letter-spacing: 0.04em;
+    font-size: 12px;
+    padding: 12px 20px;
+    color: var(--color-mid);
+    letter-spacing: 0.06em;
     border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    font-weight: 400;
   }
 
   .site-nav a:last-child {
     border-bottom: none;
   }
 
+  .site-nav a:hover {
+    color: var(--color-black);
+    background: rgba(0, 0, 0, 0.02);
+    opacity: 1;
+  }
+
   /* コンタクトボタンはドロップダウン内では通常リンクとして表示 */
   .site-nav .nav-contact-btn {
     background: transparent !important;
-    color: var(--color-dark) !important;
-    padding: 14px 24px !important;
+    color: var(--color-mid) !important;
+    padding: 12px 20px !important;
     border-radius: 0 !important;
-    font-size: 13px !important;
-    font-weight: 500 !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
   }
 
   .hamburger {
     display: flex;
   }
 
-  /* 経営理念：スマホはフルワイドの縦並びカード */
-  .philosophy-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
+  /* ご依頼の流れ：スマホは1ボックス縦並び・線区切り */
+  .flow-grid {
+    display: block;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
   }
 
-  .philosophy-grid .card {
+  .flow-connector {
+    display: none;
+  }
+
+  .flow-item {
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: none;
+    padding: 22px 24px;
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
     text-align: left;
-    padding: 28px 24px;
   }
 
-  .philosophy-grid .philosophy-card-title {
-    font-size: 20px;
-    margin-bottom: 10px;
+  .flow-item:hover {
+    box-shadow: none;
+    transform: none;
+    background: rgba(0, 0, 0, 0.01);
   }
 
-  .philosophy-grid .philosophy-card-desc {
-    font-size: 14px;
-    line-height: 1.85;
+  .flow-item:last-child {
+    border-bottom: none;
+  }
+
+  .flow-num {
+    width: 40px;
+    height: 40px;
+    font-size: 13px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .flow-title {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .flow-desc {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  /* 経営理念：スマホは縦並び・線区切り */
+  .philosophy-box {
+    grid-template-columns: 1fr;
+  }
+
+  .philosophy-item {
+    padding: 26px 24px;
+    text-align: left;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .philosophy-item:last-child {
+    border-bottom: none;
+  }
+
+  .philosophy-card-title {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .philosophy-card-desc {
+    font-size: 13px;
+    line-height: 1.8;
   }
 
   .hero-inner {
