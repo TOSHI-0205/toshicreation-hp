@@ -150,7 +150,9 @@
   <script>
     const hamburger = document.getElementById('hamburger');
     const siteNav = document.getElementById('siteNav');
-    hamburger.addEventListener('click', () => { siteNav.classList.toggle('is-open'); });
+    hamburger.addEventListener('click', (e) => { e.stopPropagation(); siteNav.classList.toggle('is-open'); });
+    siteNav.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => { siteNav.classList.remove('is-open'); }); });
+    document.addEventListener('click', (e) => { if (!siteNav.contains(e.target) && !hamburger.contains(e.target)) { siteNav.classList.remove('is-open'); } });
     window.addEventListener('scroll', () => {
       document.querySelector('.site-header').style.boxShadow = window.scrollY > 20 ? '0 2px 16px rgba(0,0,0,0.08)' : 'none';
     });

@@ -60,18 +60,18 @@
           <span class="section-label">Philosophy</span>
           <h2 class="section-title">経営理念</h2>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+        <div class="philosophy-grid">
           <div class="card" style="text-align: center;">
-            <h3 style="font-size: 17px; font-weight: 700; color: var(--color-black); margin-bottom: 12px;">やさしくつなぐ</h3>
-            <p style="font-size: 13px; color: var(--color-mid); line-height: 1.8;">テクノロジーと人の間にある壁を取り除き、誰もが安心して活用できる環境をつくります。</p>
+            <h3 class="philosophy-card-title">やさしくつなぐ</h3>
+            <p class="philosophy-card-desc">テクノロジーと人の間にある壁を取り除き、誰もが安心して活用できる環境をつくります。</p>
           </div>
           <div class="card" style="text-align: center;">
-            <h3 style="font-size: 17px; font-weight: 700; color: var(--color-black); margin-bottom: 12px;">一緒に考える</h3>
-            <p style="font-size: 13px; color: var(--color-mid); line-height: 1.8;">正解を押しつけるのではなく、お客様の目的や状況に寄り添いながら、最適な方法を共に探ります。</p>
+            <h3 class="philosophy-card-title">一緒に考える</h3>
+            <p class="philosophy-card-desc">正解を押しつけるのではなく、お客様の目的や状況に寄り添いながら、最適な方法を共に探ります。</p>
           </div>
           <div class="card" style="text-align: center;">
-            <h3 style="font-size: 17px; font-weight: 700; color: var(--color-black); margin-bottom: 12px;">前に進む力を</h3>
-            <p style="font-size: 13px; color: var(--color-mid); line-height: 1.8;">知識やスキルを提供するだけでなく、自走できる力を育て、長期的な成長をサポートします。</p>
+            <h3 class="philosophy-card-title">前に進む力を</h3>
+            <p class="philosophy-card-desc">知識やスキルを提供するだけでなく、自走できる力を育て、長期的な成長をサポートします。</p>
           </div>
         </div>
       </div>
@@ -171,7 +171,18 @@
   <script>
     const hamburger = document.getElementById('hamburger');
     const siteNav = document.getElementById('siteNav');
-    hamburger.addEventListener('click', () => { siteNav.classList.toggle('is-open'); });
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      siteNav.classList.toggle('is-open');
+    });
+    siteNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => { siteNav.classList.remove('is-open'); });
+    });
+    document.addEventListener('click', (e) => {
+      if (!siteNav.contains(e.target) && !hamburger.contains(e.target)) {
+        siteNav.classList.remove('is-open');
+      }
+    });
     window.addEventListener('scroll', () => {
       document.querySelector('.site-header').style.boxShadow = window.scrollY > 20 ? '0 2px 16px rgba(0,0,0,0.08)' : 'none';
     });
