@@ -1004,6 +1004,11 @@ section {
   opacity: 1;
 }
 
+/* ドラッグ可能カーソル */
+.carousel-inner {
+  cursor: grab;
+}
+
 /* ——— 矢印ナビ ——— */
 .carousel-arrow {
   position: absolute;
@@ -1900,12 +1905,19 @@ section {
   }
 
   .carousel-arrow {
-    width: 36px;
-    height: 36px;
+    width: 24px;
+    height: 24px;
+    background: rgba(12, 12, 12, 0.16);
+    border-color: rgba(255,255,255,0.10);
   }
 
-  .carousel-arrow--prev { left: 12px; }
-  .carousel-arrow--next { right: 12px; }
+  .carousel-arrow svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  .carousel-arrow--prev { left: 8px; }
+  .carousel-arrow--next { right: 8px; }
 
   /* スマホでは浮遊文字を非表示 */
   .char-1, .char-2, .char-3, .char-4, .char-5 {

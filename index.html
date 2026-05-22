@@ -238,24 +238,49 @@
         });
       });
 
-      // スワイプ
+      // タッチ＆マウスドラッグ
       var inner = document.getElementById('carouselInner');
-      var touchStartX = 0;
+      var dragStartX = 0;
+      var isDragging = false;
+
+      // タッチ（スマホフリック）
       inner.addEventListener('touchstart', function(e) {
-        touchStartX = e.touches[0].clientX;
+        dragStartX = e.touches[0].clientX;
       }, { passive: true });
       inner.addEventListener('touchend', function(e) {
-        var diff = touchStartX - e.changedTouches[0].clientX;
+        var diff = dragStartX - e.changedTouches[0].clientX;
         if (Math.abs(diff) > 40) {
           diff > 0 ? next() : prev();
           startAuto();
         }
       }, { passive: true });
 
+      // マウスドラッグ（PC）
+      inner.addEventListener('mousedown', function(e) {
+        dragStartX = e.clientX;
+        isDragging = true;
+        inner.style.cursor = 'grabbing';
+      });
+      window.addEventListener('mouseup', function(e) {
+        if (!isDragging) return;
+        var diff = dragStartX - e.clientX;
+        if (Math.abs(diff) > 40) {
+          diff > 0 ? next() : prev();
+          startAuto();
+        }
+        isDragging = false;
+        inner.style.cursor = '';
+      });
+      inner.addEventListener('dragstart', function(e) { e.preventDefault(); });
+
       // ホバーで一時停止
       var carousel = document.getElementById('mainCarousel');
       carousel.addEventListener('mouseenter', function() { clearInterval(autoTimer); });
-      carousel.addEventListener('mouseleave', function() { startAuto(); });
+      carousel.addEventListener('mouseleave', function() {
+        isDragging = false;
+        inner.style.cursor = '';
+        startAuto();
+      });
 
       startAuto();
     })();
