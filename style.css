@@ -1503,9 +1503,6 @@ section {
 .form-select.is-placeholder {
   color: #999;
 }
-.form-select.is-placeholder:focus {
-  color: transparent;
-}
 
 .form-textarea {
   resize: vertical;
