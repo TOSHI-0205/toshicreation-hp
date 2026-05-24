@@ -168,10 +168,15 @@ section {
   transition: color var(--transition);
 }
 
-.site-nav a:hover,
 .site-nav a.active {
   color: var(--color-black);
   opacity: 1;
+}
+@media (hover: hover) {
+  .site-nav a:hover {
+    color: var(--color-black);
+    opacity: 1;
+  }
 }
 
 .nav-contact-btn {
@@ -185,9 +190,11 @@ section {
   transition: background var(--transition) !important;
 }
 
-.nav-contact-btn:hover {
-  background: var(--color-accent-light) !important;
-  opacity: 1 !important;
+@media (hover: hover) {
+  .nav-contact-btn:hover {
+    background: var(--color-accent-light) !important;
+    opacity: 1 !important;
+  }
 }
 
 /* ハンバーガーメニュー */
@@ -1769,10 +1776,12 @@ section {
     border-bottom: none;
   }
 
-  .site-nav a:hover {
-    color: var(--color-black);
-    background: rgba(0, 0, 0, 0.02);
-    opacity: 1;
+  @media (hover: hover) {
+    .site-nav a:hover {
+      color: var(--color-black);
+      background: rgba(0, 0, 0, 0.02);
+      opacity: 1;
+    }
   }
 
   /* コンタクトボタンはドロップダウン内では通常リンクとして表示 */
