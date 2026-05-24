@@ -197,6 +197,18 @@
       });
     });
 
+    // ご相談の種類：未選択時はプレースホルダーとして表示し、フォーカス時に消去
+    const serviceSelect = document.getElementById('service');
+    function updateServiceSelect() {
+      if (serviceSelect.value === '') {
+        serviceSelect.classList.add('is-placeholder');
+      } else {
+        serviceSelect.classList.remove('is-placeholder');
+      }
+    }
+    serviceSelect.addEventListener('change', updateServiceSelect);
+    updateServiceSelect();
+
     // メールアドレス入力と hidden _replyto を同期
     const emailInput = document.getElementById('email');
     const replytoHidden = document.getElementById('replyto-hidden');
