@@ -415,7 +415,7 @@ section {
 
 /* カード */
 .card {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255,255,255,0.7);
@@ -642,7 +642,7 @@ section {
 }
 
 .service-card {
-  background: rgba(255, 255, 255, 0.48);
+  background: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255,255,255,0.55);
@@ -718,7 +718,7 @@ section {
   border: 1px solid rgba(255,255,255,0.7);
   border-radius: var(--radius-md);
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   box-shadow: 0 2px 20px rgba(0,0,0,0.06);
@@ -738,7 +738,7 @@ section {
 }
 
 .news-item:hover {
-  background: rgba(244,244,244,0.7);
+  background: rgba(244,244,244,0.35);
 }
 
 .news-date {
@@ -1110,7 +1110,7 @@ section {
    =========================== */
 
 .about-table-wrap {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255,255,255,0.7);
@@ -1142,7 +1142,7 @@ section {
   width: 200px;
   font-weight: 600;
   color: var(--color-black);
-  background: rgba(244,244,244,0.7);
+  background: rgba(244,244,244,0.35);
   font-size: 13px;
   letter-spacing: 0.02em;
 }
@@ -1159,7 +1159,7 @@ section {
 
 /* 代表メッセージ */
 .message-block {
-  background: rgba(244, 244, 244, 0.72);
+  background: rgba(244, 244, 244, 0.35);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.5);
@@ -1199,7 +1199,7 @@ section {
 }
 
 .service-full-card {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255,255,255,0.7);
@@ -1295,7 +1295,7 @@ section {
   border: 1px solid rgba(255,255,255,0.55);
   border-radius: var(--radius-md);
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   box-shadow: var(--shadow-sm);
@@ -1315,7 +1315,7 @@ section {
 }
 
 .news-full-item:hover {
-  background: rgba(244,244,244,0.7);
+  background: rgba(244,244,244,0.35);
 }
 
 /* ===========================
@@ -1330,7 +1330,7 @@ section {
 }
 
 .contact-option-card {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255,255,255,0.7);
@@ -1350,20 +1350,14 @@ section {
 
 /* LINE カード強調 */
 .contact-option-card--line {
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-color: rgba(6, 199, 85, 0.18);
 }
 
 .contact-option-card--line::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, rgba(6,199,85,0.5), rgba(6,199,85,0.15));
+  content: none;
 }
 
 .contact-option-card--line:hover {
@@ -1444,7 +1438,7 @@ section {
 
 /* お問い合わせフォーム */
 .contact-form-wrap {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255,255,255,0.7);
@@ -1550,7 +1544,7 @@ section {
    =========================== */
 
 .privacy-content {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255,255,255,0.7);
@@ -1630,7 +1624,7 @@ section {
 }
 
 .flow-item {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.7);
@@ -1691,7 +1685,7 @@ section {
 .philosophy-box {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.7);
@@ -1799,7 +1793,7 @@ section {
   /* ご依頼の流れ：スマホは1ボックス縦並び・線区切り */
   .flow-grid {
     display: block;
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.35);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.7);
