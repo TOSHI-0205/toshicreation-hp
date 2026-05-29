@@ -38,12 +38,10 @@ html {
 
 body {
   font-family: var(--font-ja);
-  background-color: #c8c8c8;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.76)),
-    url("images/glass-bg.png");
+  background-color: #f0eeeb;
+  background-image: url("images/sikkuikabe.png");
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-attachment: fixed;
   background-repeat: no-repeat;
   color: var(--color-dark);
