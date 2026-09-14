@@ -39,7 +39,7 @@ html {
 body {
   font-family: var(--font-ja);
   background-color: #f0eeeb;
-  background-image: url("images/sikkuikabe.png");
+  background-image: url("images/sikkuikabe.webp");
   background-size: cover;
   background-position: center top;
   background-attachment: fixed;
