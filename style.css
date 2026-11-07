@@ -1718,6 +1718,64 @@ section {
 }
 
 /* ===========================
+   注意喚起
+   =========================== */
+
+.alert-notice {
+  margin: 0 auto;
+  max-width: 720px;
+  padding: 28px 32px;
+  text-align: left;
+  background: #fff5f4;
+  border: 2px solid #c0392b;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  scroll-margin-top: 88px;
+}
+
+.alert-notice p {
+  font-size: 14px;
+  color: var(--color-black);
+  line-height: 1.9;
+  margin-bottom: 10px;
+}
+
+.alert-notice .alert-notice-sign {
+  margin: 16px 0 0;
+  font-weight: 600;
+  text-align: right;
+}
+
+.alert-notice-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #a5281b;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.news-full-item--important {
+  background: #fff5f4;
+}
+
+.news-full-item--important:hover {
+  background: #ffecea;
+}
+
+.news-tag--important {
+  color: #fff;
+  background: #c0392b;
+  border-color: #c0392b;
+}
+
+.news-title-link--important {
+  font-weight: 700;
+  color: #a5281b;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ===========================
    レスポンシブ
    =========================== */
 
@@ -1730,6 +1788,25 @@ section {
 
   section {
     padding: 64px 0;
+  }
+
+  /* 注意喚起：スマホ */
+  .alert-notice {
+    padding: 22px 20px;
+  }
+
+  .alert-notice-title {
+    font-size: 17px;
+  }
+
+  .news-full-item--important {
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    padding: 24px 20px;
+  }
+
+  .news-full-item--important .news-title-link {
+    flex-basis: 100%;
   }
 
   /* ハンバーガー：超コンパクトドロップダウン */
