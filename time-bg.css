@@ -17,20 +17,18 @@
   transition: opacity 4s ease;
 }
 
-/* 朝（夜明け）：上は淡い藍色、地平線に向かって桜色・薄オレンジ */
-.sky-dawn {
-  background:
+/* 時間帯の色（ヘッダーの帯でも同じ色を使うため変数にしておく） */
+:root {
+  /* 朝（夜明け）：上は淡い藍色、地平線に向かって桜色・薄オレンジ */
+  --sky-dawn:
     radial-gradient(ellipse 120% 55% at 50% 100%, rgba(255, 196, 140, 0.55) 0%, rgba(255, 196, 140, 0) 70%),
     linear-gradient(180deg,
       rgba(70, 86, 140, 0.55) 0%,
       rgba(160, 140, 190, 0.40) 35%,
       rgba(245, 176, 180, 0.38) 65%,
       rgba(255, 210, 165, 0.45) 100%);
-}
-
-/* 夕暮れ：上は紫、下へ向かって茜色 */
-.sky-dusk {
-  background:
+  /* 夕暮れ：上は紫、下へ向かって茜色 */
+  --sky-dusk:
     radial-gradient(ellipse 120% 50% at 50% 100%, rgba(255, 120, 60, 0.55) 0%, rgba(255, 120, 60, 0) 70%),
     linear-gradient(180deg,
       rgba(60, 40, 110, 0.62) 0%,
@@ -38,6 +36,9 @@
       rgba(225, 95, 70, 0.48) 75%,
       rgba(250, 150, 80, 0.50) 100%);
 }
+
+.sky-dawn { background: var(--sky-dawn); }
+.sky-dusk { background: var(--sky-dusk); }
 
 /* 夜（ライトアップ）：壁を暗くし、上から暖かい光が当たっているように */
 .sky-night {

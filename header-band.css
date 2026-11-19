@@ -1,0 +1,24 @@
+/* ===========================
+   ヘッダーの帯（朝・昼・夕暮れ）  ※夜は time-bg.css の暗幕のまま
+   見えない帯：帯に、背景と同じ漆喰壁＋時間帯の色を「画面に固定」で敷く。
+   帯と背景の柄がぴったり重なるので見た目はシームレスのまま、
+   スクロールした本文だけが帯の下に隠れる。
+   =========================== */
+body:not([data-time="night"]) .site-header {
+  background-color: #f0eeeb;
+  background-image: url("images/sikkuikabe.webp");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+body[data-time="dawn"] .site-header {
+  background-image: var(--sky-dawn), url("images/sikkuikabe.webp");
+  background-size: auto, auto, cover;
+  background-position: 0 0, 0 0, center top;
+}
+body[data-time="dusk"] .site-header {
+  background-image: var(--sky-dusk), url("images/sikkuikabe.webp");
+  background-size: auto, auto, cover;
+  background-position: 0 0, 0 0, center top;
+}
