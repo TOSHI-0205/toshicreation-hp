@@ -1,0 +1,120 @@
+/* ===========================
+   時間帯に合わせたすりガラス（朝・夕暮れ・夜）  ※昼は今のまま
+   ・スマホのメニュー（≡で開く4項目）
+   ・トップページのカルーセル
+   =========================== */
+
+/* ---------- スマホのメニュー ---------- */
+@media (max-width: 768px) {
+  /* 朝・夕暮れ：白っぽいすりガラス（背景の色がうっすら透ける） */
+  body[data-time="dawn"] .site-nav,
+  body[data-time="dusk"] .site-nav {
+    background: rgba(255, 255, 255, 0.42);
+    -webkit-backdrop-filter: blur(20px) saturate(1.3);
+    backdrop-filter: blur(20px) saturate(1.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+  }
+  body[data-time="dawn"] .site-nav a,
+  body[data-time="dusk"] .site-nav a {
+    border-bottom-color: rgba(255, 255, 255, 0.45);
+  }
+  body[data-time="dawn"] .site-nav a,
+  body[data-time="dawn"] .site-nav .nav-contact-btn,
+  body[data-time="dusk"] .site-nav a,
+  body[data-time="dusk"] .site-nav .nav-contact-btn {
+    color: #333333 !important;
+  }
+
+  /* 夜：ヘッダーの帯とつながる暗いすりガラス＋白い文字 */
+  body[data-time="night"] .site-header .site-nav {
+    background: rgba(48, 52, 70, 0.55);  /* 夜：前回案 rgba(10,12,22,0.62) より少し明るく */
+    -webkit-backdrop-filter: blur(20px) saturate(1.2);
+    backdrop-filter: blur(20px) saturate(1.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  }
+  body[data-time="night"] .site-header .site-nav a {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+  body[data-time="night"] .site-header .site-nav a,
+  body[data-time="night"] .site-header .site-nav .nav-contact-btn {
+    color: #e8e3da !important;
+  }
+}
+
+/* ---------- カルーセル ---------- */
+/* ぼかしは外枠にかけ、各スライドの下地を半透明にする */
+body[data-time="dawn"] .carousel,
+body[data-time="dusk"] .carousel,
+body[data-time="night"] .carousel {
+  -webkit-backdrop-filter: blur(18px) saturate(1.25);
+  backdrop-filter: blur(18px) saturate(1.25);
+}
+
+/* 朝・夕暮れ：白っぽいすりガラス。文字は黒のまま */
+body[data-time="dawn"] .carousel,
+body[data-time="dusk"] .carousel {
+  border: 1px solid rgba(255, 255, 255, 0.55);
+}
+body[data-time="dawn"] .carousel-slide,
+body[data-time="dusk"] .carousel-slide {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.30) 100%);
+}
+body[data-time="dawn"] .slide--dark .slide-bg-glow,
+body[data-time="dusk"] .slide--dark .slide-bg-glow {
+  background: radial-gradient(ellipse 58% 72% at 72% 52%, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 52%, transparent 78%);
+}
+body[data-time="dawn"] .slide--light .slide-bg-orb,
+body[data-time="dusk"] .slide--light .slide-bg-orb {
+  background: radial-gradient(ellipse 58% 72% at 26% 52%, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.15) 52%, transparent 78%);
+}
+
+/* 夜：暗いすりガラス＋白い文字 */
+body[data-time="night"] .carousel {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+}
+body[data-time="night"] .carousel .carousel-slide {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.17) 0%, rgba(255, 255, 255, 0.09) 100%);  /* 前回案 0.10→0.04 より少し明るく */
+  /* time-bg.css で白い下地用に濃い文字へ戻していたのを、白い文字へ戻し直す */
+  --color-black: #f5f1ea;
+  --color-dark: #e8e3da;
+}
+body[data-time="night"] .slide--dark .slide-bg-glow {
+  background: radial-gradient(ellipse 58% 72% at 72% 52%, rgba(255,220,170,0.14) 0%, rgba(255,220,170,0.06) 52%, transparent 78%);
+}
+body[data-time="night"] .slide--light .slide-bg-orb {
+  background: radial-gradient(ellipse 58% 72% at 26% 52%, rgba(255,220,170,0.14) 0%, rgba(255,220,170,0.06) 52%, transparent 78%);
+}
+body[data-time="night"] .slide-bg-chars .char { color: rgba(255, 255, 255, 0.06); }
+body[data-time="night"] .slide-label--dark { color: rgba(255, 255, 255, 0.45); }
+body[data-time="night"] .slide-desc--dark { color: rgba(255, 255, 255, 0.68); }
+body[data-time="night"] .slide-btn--dark {
+  color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.32);
+}
+body[data-time="night"] .slide-btn--dark:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ---------- 夜のヘッダー帯のぼかしを「裏の板」に移す ----------
+   ヘッダー自体にぼかしがかかっていると、その中にあるメニューのぼかしが
+   効かなくなる（後ろの文字がくっきり透ける）ため、帯の暗幕とぼかしを
+   ヘッダーの裏に置いた板（::before）に移す。見た目は今と同じ。 */
+body[data-time="night"] .site-header {
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+body[data-time="night"] .site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(10, 12, 22, 0.55);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  pointer-events: none;
+}
