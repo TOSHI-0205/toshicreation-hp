@@ -1,0 +1,139 @@
+/* ===========================
+   時間帯で変わる背景（time-bg.js とセット）
+   漆喰壁の画像はそのまま残し、その上に色を重ねる
+   =========================== */
+
+.time-sky {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.sky-layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 4s ease;
+}
+
+/* 朝（夜明け）：上は淡い藍色、地平線に向かって桜色・薄オレンジ */
+.sky-dawn {
+  background:
+    radial-gradient(ellipse 120% 55% at 50% 100%, rgba(255, 196, 140, 0.55) 0%, rgba(255, 196, 140, 0) 70%),
+    linear-gradient(180deg,
+      rgba(70, 86, 140, 0.55) 0%,
+      rgba(160, 140, 190, 0.40) 35%,
+      rgba(245, 176, 180, 0.38) 65%,
+      rgba(255, 210, 165, 0.45) 100%);
+}
+
+/* 夕暮れ：上は紫、下へ向かって茜色 */
+.sky-dusk {
+  background:
+    radial-gradient(ellipse 120% 50% at 50% 100%, rgba(255, 120, 60, 0.55) 0%, rgba(255, 120, 60, 0) 70%),
+    linear-gradient(180deg,
+      rgba(60, 40, 110, 0.62) 0%,
+      rgba(150, 60, 120, 0.50) 40%,
+      rgba(225, 95, 70, 0.48) 75%,
+      rgba(250, 150, 80, 0.50) 100%);
+}
+
+/* 夜（ライトアップ）：壁を暗くし、上から暖かい光が当たっているように */
+.sky-night {
+  background:
+    radial-gradient(ellipse 28% 60% at 18% -5%, rgba(255, 205, 140, 0.42) 0%, rgba(255, 205, 140, 0) 70%),
+    radial-gradient(ellipse 28% 60% at 50% -5%, rgba(255, 215, 160, 0.38) 0%, rgba(255, 215, 160, 0) 70%),
+    radial-gradient(ellipse 28% 60% at 82% -5%, rgba(255, 205, 140, 0.42) 0%, rgba(255, 205, 140, 0) 70%),
+    linear-gradient(180deg, rgba(14, 16, 30, 0.80) 0%, rgba(8, 10, 20, 0.88) 100%);
+}
+
+body[data-time="dawn"] .sky-dawn,
+body[data-time="dusk"] .sky-dusk,
+body[data-time="night"] .sky-night {
+  opacity: 1;
+}
+
+/* 動きを減らす設定の人には、切り替えを一瞬にする */
+@media (prefers-reduced-motion: reduce) {
+  .sky-layer { transition: none; }
+}
+
+/* ページを開いた瞬間はフェードさせず、すぐその時間帯の見た目にする */
+body.time-bg-instant,
+body.time-bg-instant .sky-layer { transition: none; }
+
+/* 文字色も時間帯に合わせてゆっくり変える */
+body { transition: color 4s ease; }
+
+/* ===========================
+   夜だけ：背景が暗くなるので文字を明るくする
+   =========================== */
+body[data-time="night"] {
+  --color-black: #f5f1ea;
+  --color-dark: #e8e3da;
+  --color-mid: #cfc9be;
+  --color-light: #b3ada2;
+  --color-border: rgba(255, 255, 255, 0.18);
+}
+
+body[data-time="night"] .section-label,
+body[data-time="night"] .page-hero-label,
+body[data-time="night"] .hero-eyecatch,
+body[data-time="night"] .news-date,
+body[data-time="night"] .service-full-tag {
+  color: #d6d0c5;
+}
+body[data-time="night"] .hero-eyecatch::before { background: #d6d0c5; }
+
+/* 白っぽい下地の部品は、中の文字を元の濃い色に戻す */
+body[data-time="night"] .hero-card,
+body[data-time="night"] .carousel-slide,
+body[data-time="night"] .alert-notice,
+body[data-time="night"] .news-full-item--important,
+body[data-time="night"] .btn-white,
+body[data-time="night"] .line-qr-box,
+body[data-time="night"] .form-input,
+body[data-time="night"] .form-select,
+body[data-time="night"] .form-textarea {
+  --color-black: #1a1a1a;
+  --color-dark: #333333;
+  --color-mid: #666666;
+  --color-light: #999999;
+  --color-border: #e0e0e0;
+}
+body[data-time="night"] .hero-card .section-label,
+body[data-time="night"] .carousel-slide .section-label { color: #444444; }
+
+/* 黒地に白文字のボタン類は、夜は「明るい地に黒文字」に反転 */
+body[data-time="night"] .nav-contact-btn,
+body[data-time="night"] .btn-primary,
+body[data-time="night"] .btn-outline:hover,
+body[data-time="night"] .flow-num {
+  color: #1a1a1a !important;
+}
+body[data-time="night"] .btn-primary:hover { background: #ffffff; }
+body[data-time="night"] .nav-contact-btn:hover { background: #ffffff !important; }
+
+/* スマホのメニュー（明るい下地）は文字を濃い色に戻す */
+@media (max-width: 768px) {
+  body[data-time="night"] .site-nav {
+    --color-black: #1a1a1a;
+    --color-dark: #333333;
+    --color-mid: #666666;
+    --color-light: #999999;
+    --color-border: #e0e0e0;
+  }
+}
+
+/* 夜：明るいスライドの上を通ってもメニューが読めるよう、ヘッダーに薄い暗幕を敷く */
+body[data-time="night"] .site-header {
+  background: rgba(10, 12, 22, 0.55);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+/* 夜：サービスカードの見出し帯は明るすぎて白文字が沈むので、暗めのガラスにする */
+body[data-time="night"] .service-card-header {
+  background: linear-gradient(135deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.04) 100%);
+}
